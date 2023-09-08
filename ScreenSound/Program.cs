@@ -1,5 +1,19 @@
-﻿using ScreenSound.Modelos;
+﻿/* using ScreenSound.Modelos;
 using ScreenSound.Menus;
+using OpenAI_API;
+using OpenAI_API.Chat;
+
+OpenAIAPI api = new OpenAIAPI("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"); 
+var chat = api.Chat.CreateConversation();
+chat.AppendSystemMessage("Resuma a banda Ira! em 1 parágrafo. Adote o estilo informal.");
+
+string response = await chat.GetResponseFromChatbotAsync();
+Console.WriteLine(response);
+
+foreach (ChatMessage msg in chat.Messages)
+{
+	Console.WriteLine($"{msg.Role}: {msg.Content}");
+}
 
 Banda ira = new Banda("Ira!");
 ira.AdicionarNota(new Avaliacao(10));
@@ -61,5 +75,10 @@ void ExibirOpcoesDoMenu()
         Console.WriteLine("Opção inválida.");
     }
 }
+ */
+//ExibirOpcoesDoMenu();
 
-ExibirOpcoesDoMenu();
+using (HttpClient client = new HttpClient())
+{
+    string resposta = await client.GetStringAsync("https://github.com/guilhermeonrails/api-csharp-songs/blob/main/songs.json");
+}
